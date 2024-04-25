@@ -12,7 +12,7 @@ st.title("Contact Me")
 
 with st.form(key="contact"):
     user_email = st.text_input("**Your Email Address**")
-    option = st.selectbox("Select an option" , options)
+    option = st.selectbox("**Select an option**" , options)
     raw_message = st.text_area("**Your message**")
     message =  f"""\
 Subject: New email from {user_email}
@@ -25,4 +25,4 @@ Topic : {option}
 
     if button:
         send_email(message)
-        st.write("Message sent successfully!")
+        st.info("Message sent successfully!")
