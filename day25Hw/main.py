@@ -9,7 +9,7 @@ pdf = fd(orientation="P", unit="mm", format="A4")
 for filepath in filepaths:
 
     with open(filepath, "r") as file:
-        content = file.readline()
+        content = file.read()
 
     filename = Path(filepath).stem
     name = filename.title()
@@ -21,7 +21,7 @@ for filepath in filepaths:
     pdf.set_font(family="Times", size =10)
     pdf.ln(10)
 
-    pdf.multi_cell(190, 10, txt=content)
+    pdf.multi_cell(0, 6, txt=content)
 
 
 
