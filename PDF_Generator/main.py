@@ -2,6 +2,7 @@ from fpdf import FPDF as fd
 import pandas as pd
 
 pdf = fd(orientation="P", unit="mm", format="A4")
+pdf.set_auto_page_break(auto=False,margin=0)
 
 df = pd.read_csv("topics.csv")
 
@@ -16,6 +17,11 @@ for index, row in df.iterrows():
 
     while pages>1:
         pdf.add_page()
+        pdf.ln(270)
+        pdf.set_font(family="Times", style="I", size=8)
+        pdf.set_text_color(180,180,180)
+        pdf.cell(w=0,h=20,txt=row["Topic"], align="R")
+
         pages = pages-1
     
 
