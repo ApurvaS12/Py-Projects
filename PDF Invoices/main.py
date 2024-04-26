@@ -65,10 +65,13 @@ for filepath in filepaths:
     pdf.ln(20)
     pdf.set_font(family="Times", size=12, style="B")
     
-    pdf.cell(w=30, h=8, txt="Total amount", border=True)
-    pdf.cell(w=30, h=8, txt=f"{total_amount}",  border=True)
+    pdf.cell(w=35, h=8, txt="Total due amount", border=True,align="J")
+    pdf.cell(w=25, h=8, txt=f"{total_amount} Euros",  border=True, align="R")
 
+    pdf.ln(10)
 
+    pdf.cell(w=22,h=10,txt="Pythonhow")
+    pdf.image(name="pythonhow.png",w=10,h=10)
 
    
 
