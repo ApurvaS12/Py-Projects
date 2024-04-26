@@ -12,10 +12,11 @@ for filepath in filepaths:
         content = file.readline()
 
     filename = Path(filepath).stem
-    print(filename)
+    name = filename.title()
+    
     pdf.add_page()
     pdf.set_font(family="Times", style="B", size =16)
-    pdf.cell(w=50, h=10, txt=filename)
+    pdf.cell(w=50, h=10, txt=name)
     pdf.line(10,20,200,20)
     pdf.set_font(family="Times", size =10)
     pdf.ln(10)
