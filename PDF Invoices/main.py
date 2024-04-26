@@ -27,12 +27,26 @@ for filepath in filepaths:
     pdf.ln(10)
 
     pdf.set_font(family="Times", size=10 , style="B")
-    #pdf.set_text_color(80,80,80)
+    columns = list(df.columns)
+    columns = [item.replace("_"," ").title() for item in columns]
+
+
+
+    pdf.cell(w=30, h=8, txt=columns[0], border=True)
+    pdf.cell(w=50, h=8, txt=columns[1],  border=True)
+    pdf.cell(w=40, h=8, txt=columns[2],  border=True)
+    pdf.cell(w=30, h=8, txt=columns[3],  border=True)
+    pdf.cell(w=40, h=8, txt=columns[4],  border=True)
+
+
+
+    """
     pdf.cell(w=30, h=8, txt="Product id", border=True)
     pdf.cell(w=50, h=8, txt="Product name",  border=True)
     pdf.cell(w=40, h=8, txt="Amount purchased",  border=True)
     pdf.cell(w=30, h=8, txt="Price per unit",  border=True)
     pdf.cell(w=40, h=8, txt="Total price",  border=True)
+    """
 
     pdf.ln(8)
     total_amount=0
