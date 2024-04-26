@@ -24,6 +24,38 @@ for filepath in filepaths:
     pdf.set_font(family="Times", size=16, style="B")
     pdf.cell(w=50, h=8, txt=f"Date: {date}")
 
+    pdf.ln(10)
+
+    pdf.set_font(family="Times", size=10 , style="B")
+    #pdf.set_text_color(80,80,80)
+    pdf.cell(w=30, h=8, txt="Product id", border=True)
+    pdf.cell(w=50, h=8, txt="Product name",  border=True)
+    pdf.cell(w=40, h=8, txt="Amount purchased",  border=True)
+    pdf.cell(w=30, h=8, txt="Price per unit",  border=True)
+    pdf.cell(w=40, h=8, txt="Total price",  border=True)
+
+    pdf.ln(8)
+    total_amount=0
+
+    for index, row in df.iterrows():
+       total_amount = total_amount + row["total_price"]
+       pdf.set_font(family="Times", size=10)
+       pdf.set_text_color(80,80,80)
+       pdf.cell(w=30, h=8, txt=f"{row["product_id"]}", border=True)
+       pdf.cell(w=50, h=8, txt=f"{row["product_name"]}",  border=True)
+       pdf.cell(w=40, h=8, txt=f"{row["amount_purchased"]}",  border=True)
+       pdf.cell(w=30, h=8, txt=f"{row["price_per_unit"]}",  border=True)
+       pdf.cell(w=40, h=8, txt=f"{row["total_price"]}",  border=True)
+       pdf.ln(8)
+
+    pdf.ln(20)
+    pdf.set_font(family="Times", size=12, style="B")
+    
+    pdf.cell(w=30, h=8, txt="Total amount", border=True)
+    pdf.cell(w=30, h=8, txt=f"{total_amount}",  border=True)
+
+
+
    
 
     
