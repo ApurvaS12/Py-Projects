@@ -1,4 +1,5 @@
 import requests
+from send_email import send_email
 
 api_key="47fa2572b9004ba88f7835c66fb2f8c8"
 
@@ -13,8 +14,17 @@ request =  requests.get(url)
 #dictionory of response
 content =  request.json()
 
+message = ""
+count = 1
 #access the acrticle titles and description
 for article in content["articles"]:
-    print(article["title"])
-    print(article["description"])
-
+    title = article["title"]
+    description = article["description"]
+    message = message + f"News {count}:" \
+        +"\n" +title +"\n" + description +"\n"
+    count+=1
+    
+    
+message = message.encode("utf-8")
+send_email(message)
+print("message sent")
